@@ -1,0 +1,29 @@
+<div class="contenedor">
+    <h1>Acerca de esta App</h1>
+
+    <div class="tarjeta">
+        <h2>Informacion del Proyecto</h2>
+        <p><strong>Desarrollador:</strong> {{desarrollador}} </p>
+        <p><strong>Version:</strong> {{version}} </p>
+        <p><strong>Fecha:</strong> {{fecha}} </p>
+
+        <div class="botones">
+            <button (click)="mostrarInformacion()">Ver Info Completa</button>
+            <button (click)="cambiarDesarrollador()">cambiar Desarrollador</button>
+        </div>
+    </div>
+
+    <div class="caracteristicas">
+        <h3>Caracteristicas</h3>
+        <!-- <ul>
+            <li *ngFor="let feature of ['Gestion de tareas', 'Interfaz responsive', 'Facil de usar']">
+                {{feature}}
+            </li>
+        </ul> -->
+        <ul>
+            @for (feature of ['Gestion de tareas', 'Interfaz responsive', 'Facil de usar']; track $index) {
+                <li> {{feature}} </li>
+            }
+        </ul>
+    </div>
+</div>

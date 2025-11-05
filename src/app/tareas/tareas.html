@@ -1,0 +1,41 @@
+<div class="contenedor">
+    <h1>{{titulo}}</h1>
+    <!-- Agregar nueva tarea -->
+    <div class="agregar-tarea">
+        <input 
+            type="text"
+            [(ngModel)]="nuevaTarea"
+            placeholder="Escribe una nueva tarea"
+            (keyup.enter)="agregarTarea()"
+        >
+        <button (click)="agregarTarea()">Agregar</button>
+    </div>
+
+    <!-- Lista de tareas -->
+    <div class="lista-tareas">
+        <!-- <div *ngFor="let tarea of tareas; let i = index" class="tarea-item">
+            <span>{{ i + 1 }}. {{ tarea }}</span>
+            <div class="botones">
+                <button (click)="completarTarea(tarea)" class="completar">/</button>
+                <button (click)="eliminarTarea(i)" class="eliminar">X</button>
+            </div>
+        </div> 
+        <p *ngIf="tareas.length === 0" class="sin-tareas">¡No hay tareas pendientes!</p>
+        -->
+
+        @for (tarea of tareas; track $index; let i = $index) {
+            <div class="tarea-item">
+                <span>{{ i + 1}}. {{ tarea }}</span>
+                <div class="botones">
+                    <button (click)="completarTarea(tarea)" class="completar">/</button>
+                    <button (click)="eliminarTarea(i)" class="eliminar">X</button>
+                </div>
+            </div>
+        } @empty {
+            <p>¡No hay tareas pendientes!</p>
+        }
+        
+    </div>
+
+    
+</div>
